@@ -3036,9 +3036,9 @@
         for the above transaction.</p>
 <p>At this point the transaction cannot (and will not) be included in a block
         because none of the other cosignatories - <em>Jusan</em> and <em>Go</em> - has
-        signed the transaction yet ż/p>
+        signed the transaction yet </p>
 <h3 id="cosigning-multisig-transaction">Cosigning multisig transaction</h3>
-<p>Što do so, <em>Jusan</em> or <em>Go</em> must initiate a multisig signature transaction
+<p>to do so, <em>Jusan</em> or <em>Go</em> must initiate a multisig signature transaction
         (see
         <span><em>Appendix A:</em> <a href="#multisigSignatureTransaction">MultisigSignatureTransaction</a></span>
         ).
@@ -3678,12 +3678,10 @@
 <li>
 <b>Rental fee (Root always: 5000000000, Sub always: 200000000) for namespace:</b> 8 bytes (long).
 	<ul>
-	
 		<b>Root always:</b> 0x00, 0xf2, 0x05, 0x2a, 0x01, 0x00, 0x00, 0x00<br/>
 		<b>Sub always:</b> 0x00, 0xc2, 0xeb, 0x0b, 0x00, 0x00, 0x00, 0x00
 	</ul>
 </li>		
-
 <li>
 <b>Length of new part string:</b> 4 bytes (integer).
         <ul>
@@ -4112,43 +4110,43 @@
                     XEM and the fee for appending a message to the transaction.</p>
 
 <p>1) Fees for transferring XEM to another account:<br/>
-					<p>a) non mosaic xem transfer: 1 xem per 10_000 xem transferred, capped at 25 xem.<p>
-					<p>Example: <br/>
-					5 xem fee for a 45_000 xem transfer, 25 xem for a 500_000 xem transfer.</p><br/>
+	<p>a) non mosaic xem transfer: 1 xem per 10_000 xem transferred, capped at 25 xem.<p>
+	<p>Example: <br/>
+	5 xem fee for a 45_000 xem transfer, 25 xem for a 500_000 xem transfer.</p><br/>
 					
 <p>2) Fees for appending a message to a transaction:<br/>
-                    <p>b) messages: 1 xem per commenced 32 message bytes (messageLength / 32 + 1).</p>
-					<p>Example: <br/>
-					message length of 48 bytes has 2 xem fee.</p><br/>
+	<p>b) messages: 1 xem per commenced 32 message bytes (messageLength / 32 + 1).</p>
+	<p>Example: <br/>
+	message length of 48 bytes has 2 xem fee.</p><br/>
 
                    
 <p>3) Fees for transferring a mosaic to another account:<br/>
-                   <p>c) mosaics with divisibility of 0 and a maxmimum supply of 10_000 are called small business mosaics. 
-				   1 xem fee for any transfer of a small business mosaic.</p>
-				   
-				   <p>d) for other mosaics as before the same formula is applied to calculate the xem equivalent, then the fee for transferring xem is applied.
-					Call that fee xemFee. To take into account the total quantities for different mosaics, an adjustment term is calculated. <br/><br/>
-					For a mosaic called m calculate:<br/>
-						<ol>
-							<li>maxMosaicQuantity = 9_000_000_000_000_000</li>
-							<li>totalMosaicQuantity = mosaic m supply * 10 ^ (mosaic m divisibility)</li>
-							<li>supplyRelatedAdjustment = floor(0.8 * ln(maxMosaicQuantity  / totalMosaicQuantity)</li>
-							<li>Then the fee is calculated as:<br/>
-							fee = max(1L, xemFee - supplyRelatedAdjustment)</li>
-						</ol>
-				    </P>
-					<p>Example:<br/>
-				    Mosaic with 9_000_000 supply and divisibility of 3<br/>
-					<ol>
-						<li>totalMosaicQuantity  = 9_000_000 * 1_000 = 9_000_000_000</li>
-						<li>supplyRelatedAdjustment = floor(0.8 * ln(9_000_000_000_000_000 / 9_000_000_000)) = floor(11.052) = 11</li>
-						<li>transferring 150 such mosaics is like transferring 150_000 xem:</li>
-						<li>xemFee = 15 xem</li>
-						<li>fee = 15 xem - 11 xem = 4 xem</li>
-				    </ol>
-				    </p>
-				   
-				   </br></br></br></br></br></br>
+   <p>c) mosaics with divisibility of 0 and a maxmimum supply of 10_000 are called small business mosaics. 
+   1 xem fee for any transfer of a small business mosaic.</p>
+   
+   <p>d) for other mosaics as before the same formula is applied to calculate the xem equivalent, then the fee for transferring xem is applied.
+	Call that fee xemFee. To take into account the total quantities for different mosaics, an adjustment term is calculated. <br/><br/>
+	For a mosaic called m calculate:<br/>
+		<ol>
+			<li>maxMosaicQuantity = 9_000_000_000_000_000</li>
+			<li>totalMosaicQuantity = mosaic m supply * 10 ^ (mosaic m divisibility)</li>
+			<li>supplyRelatedAdjustment = floor(0.8 * ln(maxMosaicQuantity  / totalMosaicQuantity)</li>
+			<li>Then the fee is calculated as:<br/>
+			fee = max(1L, xemFee - supplyRelatedAdjustment)</li>
+		</ol>
+	</P>
+	<p>Example:<br/>
+	Mosaic with 9_000_000 supply and divisibility of 3<br/>
+	<ol>
+		<li>totalMosaicQuantity  = 9_000_000 * 1_000 = 9_000_000_000</li>
+		<li>supplyRelatedAdjustment = floor(0.8 * ln(9_000_000_000_000_000 / 9_000_000_000)) = floor(11.052) = 11</li>
+		<li>transferring 150 such mosaics is like transferring 150_000 xem:</li>
+		<li>xemFee = 15 xem</li>
+		<li>fee = 15 xem - 11 xem = 4 xem</li>
+	</ol>
+	</p>
+   
+   </br></br></br></br></br></br>
 
 </td>
 </tr>
