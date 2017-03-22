@@ -618,7 +618,7 @@
 <td>
 <p>Optional field in case the transaction contains a message. The
                     payload is the actual (possibly encrypted) message data. The payload is
-                    allowed to have a maximal size of 512 bytes. Transaction validation detects
+                    allowed to have a maximal size of 1024 bytes. Transaction validation detects
                     if the limit is exceeded and returns an error in this case.</p>
 </td>
 </tr>
@@ -3227,7 +3227,7 @@
 }
          </code></pre>
 <p>This time the parent is set to the parent namespace, in this case the root namespace 'alice'. The rental fee for a sub-namespace
-        is 10% of the fee for a root namespace, i.e. 5000 XEM. Be sure to wait until you own the root namespace or NIS will respond with
+        is 200 XEM. Be sure to wait until you own the root namespace or NIS will respond with
         an error message. Once the transaction is included in a block, you own the sub-namespace 'alice.vouchers' as long as the root namespace 'alice'
         does not expire.</p>
 <p>If you want to rent the sub-namespace 'alice.vouchers.special' you have to issue a RequestPrepareAnnounce object again, this time with
@@ -4145,9 +4145,7 @@
 		<li>fee = 15 xem - 11 xem = 4 xem</li>
 	</ol>
 	</p>
-   
-   </br></br></br></br></br></br>
-
+	</br></br></br></br></br></br>
 </td>
 </tr>
 <tr>
@@ -4587,7 +4585,7 @@
             <span><em>Appendix A:</em> <a href="#transaction">Transaction</a></span>
             for more details about this structure.
         </td></tr><tr><td>version</td><td>The block version. The following versions are supported.
-            <li>0x68 &lt;&lt; 24 + 1 (1744830465 as 4 byte integer): the main network version</li>
+            <li>0x68 &lt;&lt; 24 + 1 (1744830465 as 4 byte integer): the main network version</li>			
 <li>0x98 &lt;&lt; 24 + 1 (-1744830463 as 4 byte integer): the test network version</li>
 </td></tr><tr><td>signer</td><td>The public key of the harvester of the block as hexadecimal number.</td></tr><tr><td>height</td><td>The height of the block. Each block has a unique height.
             Subsequent blocks differ in height by 1.
