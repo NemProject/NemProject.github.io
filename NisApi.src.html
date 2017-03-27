@@ -1528,7 +1528,7 @@
 {
         "data": [{
         "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "height": 13465
         }]
 }
@@ -1852,7 +1852,7 @@
 
     <resp>
 {
-    [
+    "data": [
         {
           "height": 17592,
           "address": "NALICELGU3IVY4DPJKHYLSSVYFFWYS5QPLYEZDJJ",
@@ -2632,7 +2632,7 @@
               {
                      "name": "Alice",
                      "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
-              },
+              }
        ]
 }
     </resp>
@@ -2687,7 +2687,7 @@
               {
                      "name": "Alice",
                      "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
-              },
+              }
        ]
 }
     </resp>
@@ -2763,23 +2763,24 @@
 {
        "data": [
        {
-              "node":
-              "metaData":
-              {
-                     "application": "NIS",
-                     "version": "0.4.33-BETA",
-                     "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
-              },
-              "endpoint":
-              {
-                     "protocol": "http",
-                     "port": 7890,
-                     "host": "81.224.224.156"
-              },
-              "identity":
-              {
-                     "name": "Alice",
-                     "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+              "node": {
+                     "metaData":
+                     {
+                            "application": "NIS",
+                            "version": "0.4.33-BETA",
+                            "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
+                     },
+                     "endpoint":
+                     {
+                            "protocol": "http",
+                            "port": 7890,
+                            "host": "81.224.224.156"
+                     },
+                     "identity":
+                     {
+                            "name": "Alice",
+                            "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+                     }
               },
               "syncs": 3,
               "experience":
@@ -2929,21 +2930,21 @@
     <resp>
 {
         "data": [{
-            "meta":{
-                "id":26264,
+            "meta": {
+                "id": 26264
             },
-            "namespace":{
+            "namespace": {
                 "fqn": "makoto.metal.coins",
-                "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+                "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
                 "height": 13465
             }
         },{
-            "meta":{
-                "id":25421,
+            "meta": {
+                "id": 25421
             },
-            "namespace":{
+            "namespace": {
                 "fqn": "gimre.vouchers",
-                "owner": TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
+                "owner": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
                 "height": 12392
             }
         }]
@@ -2985,7 +2986,7 @@
     <resp>
 {
         "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "height": 13465
 }
     </resp>
@@ -3134,9 +3135,9 @@
     <h4>Example of returned JSON object:</h4>
 
     <resp>
- {
+{
     "data": [{
-        "meta" {
+        "meta": {
             "id": 3541
         },
         "mosaic": {
@@ -6331,7 +6332,7 @@
     <resp>
 {
         "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "height": 13465
 }
     </resp>
@@ -6353,7 +6354,7 @@
         },
         "namespace":{
             "fqn": "makoto.metal.coins",
-            "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+            "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
             "height": 13465
         }
 }
@@ -7037,7 +7038,7 @@
         <dt>FAILURE_NAMESPACE_OWNER_CONFLICT</dt>
         <dd>Validation failed because the transaction signer is not the owner of the namespace.</dd>
 
-        <dt>FAILURE_NAMESPACE_INVALID_NAME(</dt>
+        <dt>FAILURE_NAMESPACE_INVALID_NAME</dt>
         <dd>Validation failed because the name for the namespace is invalid.</dd>
 
         <dt>FAILURE_NAMESPACE_INVALID_RENTAL_FEE_SINK</dt>
