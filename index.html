@@ -1,16 +1,16 @@
 <!--suppress HtmlUnknownTag -->
 <html>
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<link href="style.css" rel="stylesheet" type="text/css">
-</link></meta></head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
 <body>
 <div class="document">
 <p class="NemTitle" style="margin-bottom:88.0pt;"><img src="image002.png"/></p>
 <p class="NemTitleText">NEM NIS API Documentation</p>
-<p class="NemSubtitle">Version 1.18</p>
+<p class="NemSubtitle">Version 1.19</p>
 <p class="NemSubtitle">
-<time datetime="2017-01-31 09:20:00Z">09:20, January 31, 2017</time>
+<time datetime="2017-12-11 11:39:00Z">11:39, December 11, 2017</time>
 </p>
 <p style="page-break-before:always"></p>
 <p class="NemTocHeading">Contents</p>
@@ -211,6 +211,10 @@
 </div>
 <hr/>
 <div>
+<h4>Changes since 1.18</h4>
+<ul>
+<li>Updated the fee table.</li>
+</ul>
 <h4>Changes since 1.17</h4>
 <ul>
 <li>Corrected the API paths for the namespace and mosaic requests in several places.</li>
@@ -1432,9 +1436,9 @@
 <h4>Example of returned JSON object:</h4>
 <pre><samp class="JSON">{
         "data": [{
-        "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
-        "height": 13465
+                "fqn": "makoto.metal.coins",
+                "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+                "height": 13465
         }]
 }</samp></pre>
 <h4>Possible Errors:</h4>
@@ -2302,7 +2306,7 @@
               {
                      "name": "Alice",
                      "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
-              },
+              }
        ]
 }</samp></pre>
 <h4>Possible Errors:</h4>
@@ -2344,7 +2348,7 @@
               {
                      "name": "Alice",
                      "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
-              },
+              }
        ]
 }</samp></pre>
 <h4>Possible Errors:</h4>
@@ -2590,7 +2594,7 @@
         The basic data for a mosaic definition consists of
     <li>
 <b>mosaic id</b>: the mosaic id consists of two parts, a namespace id and a mosaic name. When representing the mosaic id as string
-        the two parts are concatenated via a '*':<br>
+        the two parts are concatenated via a '*':<br/>
         For example if the namespace id is 'makoto.metals.silver' and the mosaic name is 'coin' then the string representation would be 'makoto.metals.silver *
         coin'.
         Since mosaic ids should be unique, the mosaic name has to be unique within the namespace the mosaic definition refers to. The maximum length for a
@@ -2599,7 +2603,7 @@
 <li>a, b, c, ..., z, 0, 1, 2, ..., 9, ', _ , -</li>
 </ol>
         but the first character must be a letter from the alphabet.
-    </br></li>
+    </li>
 <li>
 <b>description</b>: Each definition needs a description of the mosaic. The description may not exceed a length of 512 characters. There is no
         limitation for the characters used in the description.
@@ -2614,9 +2618,9 @@
             </li>
 <li><b>divisibility</b>: The divisibility determines up to what decimal place the mosaic can be divided into. Thus a divisibility of 3
                 means that a mosaic can be divided into smallest parts of 0.001 mosaics, i.e. milli mosaics is the smallest sub-unit.
-                When transferring mosaics via a transfer transaction the quantity transferred is given in multiples of those smallest parts.<br>
+                When transferring mosaics via a transfer transaction the quantity transferred is given in multiples of those smallest parts.<br/>
                 The divisibility must be in the range of 0 and 6. The default value is "0".
-            </br></li>
+            </li>
 <li><b>supplyMutable</b>: The creator can choose between a definition that allows a mosaic supply change at a later point or an immutable supply.
                 Allowed values for the property are "true" and "false". The default value is "false".
             </li>
@@ -2769,8 +2773,8 @@
 
         <div class="warning">
             The <span class="JSON">/transaction/prepare-announce</span> API
-            should be <br> used only on <strong>TRUSTED</strong> and <strong>LOCAL</strong> nodes!
-        </br></div>
+            should be <br/> used only on <strong>TRUSTED</strong> and <strong>LOCAL</strong> nodes!
+        </div>
 <p>Note: keep in mind, that NCC does <strong>NOT</strong>
             use this API. It does all the transaction signing on it's own.
         </p>
@@ -2891,10 +2895,10 @@
 <h3 id="version-2-transfer-transactions">Version 2 transfer transactions</h3>
 <p>With transfer transactions version 2 you can just transfer messages and XEM as described in the previous chapter, the only difference
         being the field version which should have the value -1744830462 = 0x98000002 for testnet or 1744830466 = 0x68000002 for mainnet. </p>
-<p>However, version 2 transfer transaction are more powerful as they let you transfer mosaics too.<br>
+<p>However, version 2 transfer transaction are more powerful as they let you transfer mosaics too.<br/>
         Suppose you already have created a mosaic with id 'makoto.metals.silver * coin' with a divisibility of 0 and you want bundle the transfer
         of those silver coin mosaics with a transfer of 100 XEM for each silver coin. For transferring 3 silver coin mosaics and 300 XEM with a single
-        transfer transaction you would issue a RequestPrepareAnnounce JSON object to NIS which looks like this:</br></p>
+        transfer transaction you would issue a RequestPrepareAnnounce JSON object to NIS which looks like this:</p>
 <pre><code class="JSON">
 {
         "transaction":
@@ -3025,14 +3029,14 @@
 <p>As stated above, only one of the cosignatories (<em>Bob, Jusan and Go</em>)
         can create a transaction for the account <em>Alice</em>.</p>
 <p>Lets assume <em>Bob</em> wants to start a transfer transaction which transfers
-        1000 NEM from account <em>Alice</em> to account <em>Jusan</em>.<br>
+        1000 NEM from account <em>Alice</em> to account <em>Jusan</em>.<br/>
         Since the account <em>Alice</em> is a multisig account the transfer transaction
         (in the JSON object the "otherTrans" structure) must be wrapped in
         a multisig transaction (see
         <span><em>Appendix A:</em> <a href="#multisigTransaction">MultisigTransaction</a></span>
         ).
         The corresponding RequestPrepareAnnounce object would look similar to this (test network):
-    </br></p>
+    </p>
 <pre><code class="JSON"> {
         "transaction":
         {
@@ -3080,9 +3084,9 @@
         for the above transaction.</p>
 <p>At this point the transaction cannot (and will not) be included in a block
         because none of the other cosignatories - <em>Jusan</em> and <em>Go</em> - has
-        signed the transaction yet Ö</p>
+        signed the transaction yet ‚Ä¶</p>
 <h3 id="cosigning-multisig-transaction">Cosigning multisig transaction</h3>
-<p>Ö to do so, <em>Jusan</em> or <em>Go</em> must initiate a multisig signature transaction
+<p>‚Ä¶ to do so, <em>Jusan</em> or <em>Go</em> must initiate a multisig signature transaction
         (see
         <span><em>Appendix A:</em> <a href="#multisigSignatureTransaction">MultisigSignatureTransaction</a></span>
         ).
@@ -3107,12 +3111,12 @@
 <p>Note that <em>Jusan</em> used the hash ('otherHash') returned by NIS
         from <em>Bob's</em> request.</p>
 <p>After NIS has signed the transaction and sent it to the network,
-        the signature transaction will be attached to the multisig transaction.<br>
+        the signature transaction will be attached to the multisig transaction.<br/>
         With <em>Jusan</em> having signed the multisig transaction that <em>Bob</em> initiated,
         two of the three cosignatories have signed the inner transfer transaction (<em>Bob</em>
         indirectly signed by initiating the multisig transaction) and thus the
         multisig transaction can be included in a block.
-    </br></p>
+    </p>
 <h2 id="adding-and-removing-cosignatories">Adding and removing cosignatories</h2>
 <p>It is possible to modify the list of cosignatories for a multisig account. This is
         done via a aggregate modification transaction wrapped in a multisig transaction.</p>
@@ -3168,19 +3172,19 @@
 <p>If at some later time <em>Bob, Jusan and Go</em> want to remove the
         cosignatory <em>Hachi</em> to make it a 2 of 3 multisig account again one of cosignatories could initiate a similar
         transaction as above but this time with <span class="JSON">"modificationType"</span>
-        set to <b>2</b> (which means remove) and using a minimum cosignatories relative change value of <b>-1</b>.<br>
+        set to <b>2</b> (which means remove) and using a minimum cosignatories relative change value of <b>-1</b>.<br/>
         For removing a cosignatory <em>all</em> cosignatories except the one being removed need to sign the transaction.
-        Once approved by the network <em>Hachi</em> is no longer cosignatory of the multisig account <em>Alice.</em></br></p>
+        Once approved by the network <em>Hachi</em> is no longer cosignatory of the multisig account <em>Alice.</em></p>
 <div class="warning">
         Removal of accounts is <strong>NOT</strong> final and might be subject of change
     </div>
 <h2 id="how-to-use-a-multisig-account">How to use a multisig account</h2>
 <p>The purpose of multisig accounts is to make accounts safer. But this relies
-        on the user not making mistakes when using multisig accounts.<br>
+        on the user not making mistakes when using multisig accounts.<br/>
         If for instance all private keys of the cosignatories of a multisig account
         reside on a single computer then the multisig account is essentially as good
         as a normal account because if that computer gets compromised all private
-        keys are disclosed to the attacks at once.</br></p>
+        keys are disclosed to the attacks at once.</p>
 <p>It is therefore essential to have the private key of the cosignatories on
         different computer preferably in different locations.</p>
 <p>If you have read
@@ -3241,7 +3245,7 @@
         has already rented that root namespace or NIS will return an error. The high rental fee is there to prevent users from squatting all
         kinds of root namespaces. This fee is not given to the harvesters because this would encourage harvesters to wait until they are
         allowed to harvest a block, include their provision namespace transaction in that block and thus essentially getting the namespace
-        for free. Instead all rental fees are collected in a special multisig account.<br>
+        for free. Instead all rental fees are collected in a special multisig account.<br/>
         The most common error responses from NIS will be:
     <li>The namespace is already owned by another account.</li>
 <li>The namespace contains illegal character or a reserved namespace part.</li>
@@ -3250,7 +3254,7 @@
     If NIS responses with a success message, the transaction is broadcasted to the network and will get included in a future block.
     After the transaction is included in a block you can check that you are the owner of that namespace by issuing an /account/namespaces
     request, see chapter xyz.
-    </br></p>
+    </p>
 <p>To rent the sub-namespace 'alice.vouchers' you need again send a RequestPrepareAnnounce JSON object to NIS which this time looks like this:</p>
 <pre><code class="JSON">
 {
@@ -3282,10 +3286,10 @@
     </p>
 <h2 id="creating-mosaics">Creating mosaics</h2>
 <h3 id="creating-a-mosaic-definition">Creating a mosaic definition</h3>
-<p>The basics of the NEM mosaic concept can be found in the chapter <a href="#mosaics">Mosaics</a>.<br>
+<p>The basics of the NEM mosaic concept can be found in the chapter <a href="#mosaics">Mosaics</a>.<br/>
         To define and create a mosaic type you need to issue a <a href="#mosaicDefinitionCreationTransaction">MosaicDefinitionCreationTransaction</a>.
         As usual this is done by sending a RequestPrepareAnnounce JSON object to NIS which in this case would look like this:
-    </br></p>
+    </p>
 <pre><code class="JSON">
 {
         "transaction":
@@ -3345,9 +3349,9 @@
         owns a voucher it can only be transferred back to the creator.
     </li>
     The definition also implies a levy with each transfer. The levy section states that there is an additional fee of 10 XEM for each transfer. That fee
-    is send to the recipient with address TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH.<br>
+    is send to the recipient with address TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH.<br/>
     This levy part of the transaction is optional. If that part is ommited no additional fee arises from transferring the mosaics.
-    </br></p>
+    </p>
 <p>Reasons for NIS now accepting the transactions are most likely:
     <li>The transaction signer does not own the namespace that is specified in the mosaic definition or the namespace has expired.</li>
 <li>A mosaic definition with the specified mosaic id already exists (see discussion below about altering mosaic definitions).</li>
@@ -4147,39 +4151,44 @@
 <td>
 <p>The fee is the sum of the fee for transferring an amount of
                     XEM and the fee for appending a message to the transaction.</p>
-<p>1) Fees for transferring XEM to another account:<br/>
-                    a) If the amount transferred is less than 8 XEM then the
-                    fee is 10 - amount XEM.<br/>
+<ol>
+<li>Fees for transferring XEM to another account:<br/>
+                    1 xem per 10,000 xem transferred, capped at 25 xem<br/>
                     Example:<br/>
-                    Transferring 6 XEM costs 4 XEM fee.<br/>
-                    b) If the amount transferred is greater or equal 8 XEM
-                    then the fee is<br/>
-                    max(2, 99 * arctan(amount / 150000)) XEM.<br/>
+                    4 xem fee for a 45,000 xem transfer, 25 xem fee for a 500,000 xem transfer.</li>
+<li>Fees for appending a message to a transaction:<br/>
+                    1 xem per commenced 32 message bytes (messageLength / 32 + 1).<br/>
                     Example:<br/>
-                    Transferring 100000 XEM costs 58 XEM.</p>
-<p>2) Fees for appending a message to a transaction:<br/>
-                    Transferring 100000 XEM costs 58 XEM.</p>
-<p>2) Fees for transferring a mosaic to another account:<br/>
-                    For each mosaic that is transferred the fee is calculated the following way:<br>
-                    a) given a mosaic with initial supply s, divisibility d and quantity q, the XEM equivalent is (round to the next smaller integer)<br/>
-                    xemEquivalent = (8,999,999,999 * q) / (s * 10^d) <br/>
-                    The fee is then calculated by applying 1) to xemEquivalent and in a final step adding 25% to it:<br>
-                    fee = (apply 1) to xemEquivalent) * 1.25<br>
-                    Example:<br/>
-                    Suppose the transaction has an amount of 3,000,000 micro-xem and the mosaic in the attachment has an initial supply of 1,000,000,
-                    a divisibility of 3 and a quantity of 5,000. This means that a quantity of 15,000 will be transferred.
-                    Applying the above formula gives<br>
-                    xemEquivalent = (8,999,999,999 * 15,000) / (1,000,000 * 1000) = 134999<br>
-                    The result was rounded to the next smaller integer. Applying 1) to xemEquivalent gives (again after rounding) 72.<br>
-                    So the fee is 72 * 1.25 XEM = 90 XEM.</br></br></br></br></br></br></p>
-<p>3) Fees for appending a message to a transaction:<br/>
-                    If no message or an empty message is append it costs
-                    0 XEM. Else the fee is calculated as<br/>
-                    2 * max(1, message length / 16)<br/>
-                    Example:<br/>
-                    The unencrypted message ÑThe New Economy
-                    Movement will change the world!!!ì has a length 49
-                    characters and thus will cost 2 * 49/16 = 6 XEM.</p>
+                    The unencrypted message ‚ÄûThe New Economy
+                    Movement will change the world!!!‚Äù has a length 49
+                    characters and thus will cost 2 xem fee.</li>
+<li>Fees for transferring a mosaic to another account:
+                    <ol>
+<li>mosaics with divisibility of 0 and a maximum supply of 10,000 are called small business mosaics.<br/>
+	                    1 xem fee for any transfer of a small business mosaic.</li>
+<li> For each mosaic that is transferred the fee is calculated the following way:
+                        given a mosaic with initial supply s, divisibility d and quantity q, the XEM equivalent is (round to the next smaller integer)<br/>
+                        xemEquivalent = (8,999,999,999 * q) / (s * 10^d) <br/>
+                        To take into account the total quantities for different mosaics, an adjustment term is calculated.<br/>
+                        For a mosaic called m calculate<br/>
+                        maxMosaicQuantity = 9,000,000,000,000,000<br/>
+                        totalMosaicQuantity = mosaic m supply * 10 ^ (mosaic m divisibility)<br/>
+                        supplyRelatedAdjustment = floor(0.8 * ln(maxMosaicQuantity  / totalMosaicQuantity)<br/>
+                        Then the fee is calculated as<br/>
+                        fee = max(1L, xemFee - supplyRelatedAdjustment)<br/>
+                        Example:<br/>
+                        Suppose you have a mosaic with 9,000,000 supply and divisibility of 3.<br/>
+                        totalMosaicQuantity  = 9,000,000 * 1,000 = 9,000,000,000<br/>
+                        supplyRelatedAdjustment = floor(0.8 * ln(9,000,000,000,000,000 / 9,000,000,000)) = floor(11.052) = 11<br/>
+                        Transferring 150 such mosaics (i.e. a quantity of 150,000 smallest units) has<br/>
+                        xemEquivalent = (8,999,999,999 * 150,000) / (9,000,000 * 10^3) = 149,999<br/>
+                        xemFee = 14 xem<br/>
+                        So the transction will have the following fee:<br/>
+                        fee = 14 xem - 11 xem = 3 xem
+                        </li>
+</ol>
+</li>
+</ol>
 </td>
 </tr>
 <tr>
@@ -4225,7 +4234,7 @@
 <p class="JSON">Provision namespace transaction</p>
 </td>
 <td>
-<p>108 XEM</p>
+<p>20 XEM</p>
 </td>
 </tr>
 <tr>
@@ -4233,7 +4242,7 @@
 <p class="JSON">Mosaic definition creation transaction</p>
 </td>
 <td>
-<p>108 XEM</p>
+<p>20 XEM</p>
 </td>
 </tr>
 <tr>
@@ -4241,7 +4250,7 @@
 <p class="JSON">Mosaic supply change transaction</p>
 </td>
 <td>
-<p>108 XEM</p>
+<p>20 XEM</p>
 </td>
 </tr>
 </table>
@@ -4601,7 +4610,7 @@
        },
        "type": 1,
        "transactions": [
-              Transaction1, Transaction2, Ö, Transaction11
+              Transaction1, Transaction2, ‚Ä¶, Transaction11
        ],
        "version": 1744830465,
        "signer": "6c66ea288522990db7a0a63c9c20f532cdcb68dc3c9544fb20f7322c92ceadbb",
@@ -4634,9 +4643,9 @@
 <h2 id="blockHeight">BlockHeight</h2>
 <h4>Description:</h4>
 <p class="NemNoSpacing">The block height describes the position
-    of the block within the block chain. The first block of the chain has height
-    one. Each subsequent block has a height which is one higher than the previous
-    block.</p>
+            of the block within the block chain. The first block of the chain has height
+            one. Each subsequent block has a height which is one higher than the previous
+            block.</p>
 
 <h4>JSON structure by example:</h4>
 <pre><samp class="JSON">{
@@ -4702,7 +4711,7 @@
                 "hash":"a6f62c62eedf4fafe6991e5cf31eae440963577c919f4eae86b4db8f8e572dce",
                 "difficulty": 23456345897
             },
-            Ö
+            ‚Ä¶
         ]
 }</samp></pre>
 <h4>Description of the fields:</h4><table class="NemParamsGrid"><tr><td>txes</td><td>Array containing the transactions of the block.</td></tr><tr><td>&lt;ExplorerTransferViewModel&gt;</td><td>The ExplorerBlockViewModel object as described in <a href="#explorerTransferViewModel">ExplorerTransferViewModel</a>
