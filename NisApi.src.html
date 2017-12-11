@@ -1,4 +1,4 @@
-<!--suppress HtmlUnknownTag -->
+﻿<!--suppress HtmlUnknownTag -->
 <html>
 
 <head>
@@ -528,7 +528,7 @@
             <td>
                 <p>Optional field in case the transaction contains a message. The
                     payload is the actual (possibly encrypted) message data. The payload is
-                    allowed to have a maximal size of 512 bytes. Transaction validation detects
+                    allowed to have a maximal size of 1024 bytes. Transaction validation detects
                     if the limit is exceeded and returns an error in this case.</p>
             </td>
         </tr>
@@ -2102,64 +2102,6 @@
     <p>NIS can supply either individual blocks
         identified by block height or block hash or can supply up to 10 blocks
         beginning at a certain height.</p>
-
-    <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
-    <h3>Getting a block with a given hash</h3>
-
-    <api get>/block/get</api>
-
-
-    <desc>
-        <p class=NemNoSpacing>Gets a block from the chain that has a
-            given hash.</p>
-    </desc>
-
-    <h4>Parameter:</h4>
-
-    <table class=NemTableGrid>
-        <tr>
-            <td>
-                <p class=JSON>blockHash </p>
-            </td>
-            <td>
-                <p class=NemNoSpacing>The 256 bit sha3 hash of the block.
-                    The hash must be supplied as hexadecimal string.</p>
-            </td>
-        </tr>
-    </table>
-
-    <h4>Example:</h4>
-
-    <p><a href="http://127.0.0.1:7890/block/get?blockHash=58efa578aea719b644e8d7c731852bb26d8505257e03a897c8102e8c894a99d6">http://127.0.0.1:7890/block/get?blockHash=58efa578aea719b644e8d7c731852bb26d8505257e03a897c8102e8c894a99d6</a>
-    </p>
-
-    <h4>Example of returned JSON object (main network):</h4>
-
-    <resp>
-{
-       "timeStamp": 9232942,
-       "signature": "005f91b8908fc173a428ff8e8c4a0ee0d69e4004aed0d08f27690b6b6672ef74ccc6b89695bed5f29b0f4a812cb84bfa459f52a4e14a11e574793969f0e1a30f",
-       "prevBlockHash": {
-              "data": "f721e563b4431594c5af6f6be0a913f47f0aca6c3b8ee6a703bfe175ee54babf"
-       },
-       "type": 1,
-       "transactions": [
-       ],
-       "version": 1744830465,
-       "signer": "78e121cc1cf63424651ec64251e78efda81386c9f5e9eb4cb08b2a2192c9dce5",
-       "height": 42803
-}
-    </resp>
-
-    <h4>Possible Errors:</h4>
-
-    <p class=NemNoSpacing>If the block hash is not found in the
-        database, NIS will return a JSON error object. See
-        <appa>Error object</appa>
-        or more information of the error object and
-        <alnk>Appendix B: NIS Errors</alnk>
-        for the error message.
-    </p>
 
     <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
     <h3>Getting a block with a given height</h3>
@@ -3795,7 +3737,7 @@
          </code></pre>
 
     <p>This time the parent is set to the parent namespace, in this case the root namespace 'alice'. The rental fee for a sub-namespace
-        is 10% of the fee for a root namespace, i.e. 5000 XEM. Be sure to wait until you own the root namespace or NIS will respond with
+        is 200 XEM. Be sure to wait until you own the root namespace or NIS will respond with
         an error message. Once the transaction is included in a block, you own the sub-namespace 'alice.vouchers' as long as the root namespace 'alice'
         does not expire.</p>
 
@@ -3989,6 +3931,7 @@
                 mosaic supply change transactions the version must be
             </p>
             <li>0x68 &lt;&lt; 24 + 1 (main network)</li>
+            <li>0x60 &lt;&lt; 24 + 1 (mijin network)</li>
             <li>0x98 &lt;&lt; 24 + 1 (test network)</li>
             <b>Example (main network):</b> 0x01, 0x00, 0x00, 0x68
             <p></p>
@@ -3997,6 +3940,7 @@
                 For transfer transactions and multisig aggregate modification transactions the version must be
             </p>
             <li>0x68 &lt;&lt; 24 + 2 (main network)</li>
+            <li>0x60 &lt;&lt; 24 + 2 (mijin network)</li>
             <li>0x98 &lt;&lt; 24 + 2 (test network)</li>
             <b>Example (main network):</b> 0x02, 0x00, 0x00, 0x68
         </ul>
@@ -4258,23 +4202,26 @@
 
     <h4colored>Provision namespace transaction part</h4colored>
     <li>
-        <b>Length of rental fee sink's public key byte array (always 32):</b> 4 bytes (integer).
-        <ul>
-            <b>Always:</b> 0x20, 0x00, 0x00, 0x00
+        <b>Length of rental fee sink's Encoded Address (always 40):</b> 4 bytes (integer).
+        <ul>          
+            <b>Always:</b> 0x28, 0x00, 0x00, 0x00           
         </ul>
     </li>
     <li>
-        <b>Public key bytes of rental fee sink:</b> 32 bytes.
+        <b>Address bytes of rental fee sink:</b> 40 bytes.
         <ul>
-            <b>Always:</b> 0x3e, 0x82, 0xe1, 0xc1, 0xe4, 0xa7, 0x5a, 0xda, 0xa3, 0xcb,
-            0xa8, 0xc1, 0x01, 0xc3, 0xcd, 0x31, 0xd9, 0x81, 0x7a, 0x2e, 0xb9, 0x66, 0xeb,
-            0x3b, 0x51, 0x1f, 0xb2, 0xed, 0x45, 0xb8, 0xe2, 0x62
+            <b>Always (TAMESPACEWH4MKFMBCVFERDPOOP4FK7MTDJEYP35):</b> 0x35, 0x33, 0x50, 0x59, 0x45, 0x4a, 0x44, 0x54, 0x4d, 0x37,
+            			   0x4b, 0x46, 0x34, 0x50, 0x4f, 0x4f, 0x50, 0x44, 0x52, 0x45,
+            			   0x46, 0x56, 0x43, 0x42, 0x4d, 0x46, 0x4b, 0x4d, 0x34, 0x48,
+            			   0x57, 0x45, 0x43, 0x41, 0x50, 0x53, 0x45, 0x4d, 0x41, 0x54
         </ul>
     </li>
     <li>
-        <b>Fental fee (always 50000000000):</b> 8 bytes (long).
-        <ul>
-            <b>Always:</b> 0x00, 0x74, 0x3b, 0xa4, 0x0b, 0x00, 0x00, 0x00
+        <b>Rental fee (Root always: 5000000000, Sub always: 200000000) for namespace:</b> 8 bytes (long).
+       	<ul>
+            <b>Root always:</b> 0x00, 0xf2, 0x05, 0x2a, 0x01, 0x00, 0x00, 0x00
+            <br />
+            <b>Sub always:</b> 0x00, 0xc2, 0xeb, 0x0b, 0x00, 0x00, 0x00, 0x00
         </ul>
     </li>
     <li>
@@ -4564,23 +4511,24 @@
     </li>
     <p>The levy structure ends here.</p>
     <li>
-        <b>Length of creation fee sink's public key byte array (always 32):</b> 4 bytes (integer).
+        <b>Length of creation fee sink's encoded address byte array (always 40):</b> 4 bytes (integer).
         <ul>
-            <b>Always:</b> 0x20, 0x00, 0x00, 0x00
+            <b>Always:</b> 0x28, 0x00, 0x00, 0x00
         </ul>
     </li>
     <li>
-        <b>Public key bytes of creation fee sink:</b> 32 bytes.
+        <b>Address key bytes of creation fee sink:</b> 40 bytes.
         <ul>
-            <b>Always:</b> 0x53, 0xe1, 0x40, 0xb5, 0x94, 0x7f, 0x10, 0x4c, 0xab, 0xc2, 0xd6, 0xfe, 0x8b,
-            0xae, 0xdb, 0xc3, 0x0e, 0xf9, 0xa0, 0x60, 0x9c, 0x71, 0x7d, 0x96, 0x13,
-            0xde, 0x59, 0x3e, 0xc2, 0xa2, 0x66, 0xd3
+            <b>Always (TBMOSAICOD4F54EE5CDMR23CCBGOAM2XSJBR5OLC):</b> 0x43, 0x4c, 0x4f, 0x35, 0x52, 0x42, 0x4a, 0x53, 0x58, 0x32,
+            +0x4d, 0x41, 0x4f, 0x47, 0x42, 0x43, 0x43, 0x33, 0x32, 0x52,
+            +0x4d, 0x44, 0x43, 0x35, 0x45, 0x45, 0x34, 0x35, 0x46, 0x34,
+            +0x44, 0x4f, 0x43, 0x49, 0x41, 0x53, 0x4f, 0x4d, 0x42, 0x54
         </ul>
     </li>
     <li>
         <b>Fee quantity:</b> 8 bytes (long).
         <ul>
-            <b>Always: (50000000000)</b> 0x00, 0x74, 0x3b, 0xa4, 0x0b, 0x00, 0x00, 0x00
+            <b>Always: (5000000000)</b> 0x00, 0xf2, 0x05, 0x2a, 0x01, 0x00, 0x00, 0x00
         </ul>
     </li>
 
@@ -4821,6 +4769,9 @@
             </td>
             <td>
                 <p>20 XEM</p>
+                <p>plus:</p>
+                <p>Fee for root namespace provisioning: 5000 XEM</p>
+                <p>Fee for sub-namespace provisioning: 200 XEM</p>
             </td>
         </tr>
         <tr>
