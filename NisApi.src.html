@@ -15,7 +15,7 @@
 
     <p class=NemTitleText>NEM NIS API Documentation</p>
 
-    <p class=NemSubtitle>Version 1.19</p>
+    <p class=NemSubtitle>Version 1.20</p>
 
     <p class=NemSubtitle>
         <time>FILLED AUTOMATICALLY</time>
@@ -35,6 +35,10 @@
 
     <hr/>
     <div>
+        <h4>Changes since 1.19</h4>
+        <ul>
+            <li>Fixed descriptions of namespace and mosaic transactions. Message payload size.
+        </ul>
         <h4>Changes since 1.18</h4>
         <ul>
             <li>Updated the fee table.</li>
@@ -486,6 +490,7 @@
             <td>
                 <p>The version of the structure. The following version are currently support.</p>
                 <li>0x68 &lt;&lt; 24 + 1 (1744830465 as 4 byte integer): the main network version</li>
+                <li>0x60 &lt;&lt; 24 + 1 (1610612737 as 4 byte integer): the mijin network version</li>
                 <li>0x98 &lt;&lt; 24 + 1 (-1744830463 as 4 byte integer): the test network version</li>
             </td>
         </tr>
@@ -1970,6 +1975,7 @@
             <td>
                 <p>The block version. The following versions are supported:</p>
                 <li>0x68 &lt;&lt; 24 + 1 (1744830465 as 4 byte integer): the main network version</li>
+                <li>0x60 &lt;&lt; 24 + 1 (1610612737 as 4 byte integer): the mijin network version</li>
                 <li>0x98 &lt;&lt; 24 + 1 (-1744830463 as 4 byte integer): the test network version</li>
             </td>
         </tr>
@@ -3304,7 +3310,8 @@
     <h3>Version 2 transfer transactions</h3>
 
     <p>With transfer transactions version 2 you can just transfer messages and XEM as described in the previous chapter, the only difference
-        being the field version which should have the value -1744830462 = 0x98000002 for testnet or 1744830466 = 0x68000002 for mainnet. </p>
+        being the field version which should have the value -1744830462 = 0x98000002 for testnet, 1744830466 = 0x68000002 for mainnet
+        or 1610612738 = 0x60000002 for mijin network. </p>
 
     <p>However, version 2 transfer transaction are more powerful as they let you transfer mosaics too.<br>
         Suppose you already have created a mosaic with id 'makoto.metals.silver * coin' with a divisibility of 0 and you want bundle the transfer
@@ -4210,18 +4217,16 @@
     <li>
         <b>Address bytes of rental fee sink:</b> 40 bytes.
         <ul>
-            <b>Always (TAMESPACEWH4MKFMBCVFERDPOOP4FK7MTDJEYP35):</b> 0x35, 0x33, 0x50, 0x59, 0x45, 0x4a, 0x44, 0x54, 0x4d, 0x37,
-            			   0x4b, 0x46, 0x34, 0x50, 0x4f, 0x4f, 0x50, 0x44, 0x52, 0x45,
-            			   0x46, 0x56, 0x43, 0x42, 0x4d, 0x46, 0x4b, 0x4d, 0x34, 0x48,
-            			   0x57, 0x45, 0x43, 0x41, 0x50, 0x53, 0x45, 0x4d, 0x41, 0x54
+            <b>Network dependant sink address (i.e. TAMESPACEWH4MKFMBCVFERDPOOP4FK7MTDJEYP35):</b>
+                0x54, 0x41, 0x4d, 0x45, 0x53, 0x50, 0x41, 0x43, 0x45, 0x57, 0x48, 0x34, 0x4d, 0x4b, 0x46, 0x4d, 0x42, 0x43, 0x56, 0x46,
+                0x45, 0x52, 0x44, 0x50, 0x4f, 0x4f, 0x50, 0x34, 0x46, 0x4b, 0x37, 0x4d, 0x54, 0x44, 0x4a, 0x45, 0x59, 0x50, 0x33, 0x35
         </ul>
     </li>
     <li>
         <b>Rental fee (Root always: 5000000000, Sub always: 200000000) for namespace:</b> 8 bytes (long).
        	<ul>
-            <b>Root always:</b> 0x00, 0xf2, 0x05, 0x2a, 0x01, 0x00, 0x00, 0x00
-            <br />
-            <b>Sub always:</b> 0x00, 0xc2, 0xeb, 0x0b, 0x00, 0x00, 0x00, 0x00
+            <li><b>Root always:</b> 0x00, 0xf2, 0x05, 0x2a, 0x01, 0x00, 0x00, 0x00</li>
+            <li><b>Sub always:</b> 0x00, 0xc2, 0xeb, 0x0b, 0x00, 0x00, 0x00, 0x00</li>
         </ul>
     </li>
     <li>
@@ -4519,10 +4524,9 @@
     <li>
         <b>Address key bytes of creation fee sink:</b> 40 bytes.
         <ul>
-            <b>Always (TBMOSAICOD4F54EE5CDMR23CCBGOAM2XSJBR5OLC):</b> 0x43, 0x4c, 0x4f, 0x35, 0x52, 0x42, 0x4a, 0x53, 0x58, 0x32,
-            +0x4d, 0x41, 0x4f, 0x47, 0x42, 0x43, 0x43, 0x33, 0x32, 0x52,
-            +0x4d, 0x44, 0x43, 0x35, 0x45, 0x45, 0x34, 0x35, 0x46, 0x34,
-            +0x44, 0x4f, 0x43, 0x49, 0x41, 0x53, 0x4f, 0x4d, 0x42, 0x54
+            <b>Network dependant sink address (i.e. TBMOSAICOD4F54EE5CDMR23CCBGOAM2XSJBR5OLC):</b>
+                0x54, 0x42, 0x4d, 0x4f, 0x53, 0x41, 0x49, 0x43, 0x4f, 0x44, 0x34, 0x46, 0x35, 0x34, 0x45, 0x45, 0x35, 0x43, 0x44, 0x4d,
+                0x52, 0x32, 0x33, 0x43, 0x43, 0x42, 0x47, 0x4f, 0x41, 0x4d, 0x32, 0x58, 0x53, 0x4a, 0x42, 0x52, 0x35, 0x4f, 0x4c, 0x43
         </ul>
     </li>
     <li>
@@ -5347,6 +5351,7 @@
         </f>
         <f name="version">The block version. The following versions are supported.
             <li>0x68 &lt;&lt; 24 + 1 (1744830465 as 4 byte integer): the main network version</li>
+            <li>0x60 &lt;&lt; 24 + 1 (1610612737 as 4 byte integer): the mijin network version</li>
             <li>0x98 &lt;&lt; 24 + 1 (-1744830463 as 4 byte integer): the test network version</li>
         </f>
         <f name="signer">The public key of the harvester of the block as hexadecimal number.</f>
@@ -5803,8 +5808,8 @@
             modification inside the transaction. A multisig aggregate
             modification transaction can be wrapped by a multisig transaction.
             Aggregate modification transactions that use the minCosignatories field need to have
-            version 0x68000002 (decimal 1744830466) for mainnet and 0x98000002 (decimal -1744830462)
-            for testnet.
+            version 0x68000002 (decimal 1744830466) for mainnet, 0x98000002 (decimal -1744830462)
+            for testnet and 0x60000002 (decimal 1610612738) for mijin network.
         </p>
     </desc>
 
@@ -6536,6 +6541,7 @@
         <f name="features">The number of features the nodes has.</f>
         <f name="networkId"><p>The network id. The following network ids are supported:</p>
             <li>104 (hex 0x68): The main network id.</li>
+            <li>96 (hex 0x60): The mijin network id.</li>
             <li>152 (hex 0x98): The test network id.</li>
         </f>
         <f name="application">The name of the application that is running the node.</f>
