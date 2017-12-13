@@ -6,11 +6,11 @@
 </head>
 <body>
 <div class="document">
-<p class="NemTitle" style="margin-bottom:88.0pt;"><img src="image002.png"/></p>
+<p class="NemTitle"><img src="logo.png"/></p>
 <p class="NemTitleText">NEM NIS API Documentation</p>
-<p class="NemSubtitle">Version 1.20</p>
+<p class="NemSubtitle">Version 1.21</p>
 <p class="NemSubtitle">
-<time datetime="2017-12-11 12:34:00Z">12:34, December 11, 2017</time>
+<time datetime="2017-12-13 14:18:00Z">14:18, December 13, 2017</time>
 </p>
 <p style="page-break-before:always"></p>
 <p class="NemTocHeading">Contents</p>
@@ -210,10 +210,14 @@
 </div>
 <hr/>
 <div>
+<h4>Changes since 1.20</h4>
+<ul>
+<li>Updated the fees to reflect the second fee fork.</li>
+</ul>
 <h4>Changes since 1.19</h4>
 <ul>
-<li>Fixed descriptions of namespace and mosaic transactions. Message payload size.
-        </li></ul>
+<li>Fixed descriptions of namespace and mosaic transactions. Message payload size.</li>
+</ul>
 <h4>Changes since 1.18</h4>
 <ul>
 <li>Updated the fee table.</li>
@@ -2457,8 +2461,8 @@
     <li>NAMESPACEWH4MKFMBCVFERDPOOP4FK7MTBXDPZZA in the main net and</li>
 <li>TAMESPACEWH4MKFMBCVFERDPOOP4FK7MTDJEYP35 in the test net.</li>
     The fee for renting a namespace for one year is
-    <li>50000 XEM for a root namespace and</li>
-<li>5000 XEM for a sub-namespace.</li>
+    <li>100 XEM for a root namespace and</li>
+<li>10 XEM for a sub-namespace.</li>
 </p>
 <p>
         The ownership of a namespace is needed in order to create mosaics.
@@ -2620,7 +2624,7 @@
         fee. This fee is paid to the so called creation fee sink which is a special account with address
     <li>NBMOSAICOD4F54EE5CDMR23CCBGOAM2XSIUX6TRS in the main net and</li>
 <li>TBMOSAICOD4F54EE5CDMR23CCBGOAM2XSJBR5OLC in the test net.</li>
-    The fee for creating a mosaic definition is 50000 XEM.
+    The fee for creating a mosaic definition is 10 XEM.
     </p>
 <p>There is one predefined mosaic which represents the XEM coin. The data for this XEM mosaic is:
     <li>namespace: nem</li>
@@ -3190,13 +3194,13 @@
             "transaction":
             {
                 "timeStamp": 9111526,
-                "fee": 108000000,
+                "fee": 150000,
                 "type": 8193,
                 "deadline": 9154726,
                 "version": -1744830463,
                 "signer": "d99e88c90da71a4b0d848454e59e296c9ef7a8f018f3eaa3a198dc460b6621a4",
                 "rentalFeeSink": "3e82e1c1e4a75adaa3cba8c101c3cd31d9817a2eb966eb3b511fb2ed45b8e262",
-                "rentalFee": 50000000000,
+                "rentalFee": 100000000,
                 "newPart": "alice",
                 "parent": null
             },
@@ -3223,13 +3227,13 @@
          "transaction":
          {
              "timeStamp": 9111526,
-             "fee": 108000000,
+             "fee": 150000,
              "type": 8193,
              "deadline": 9154726,
              "version": -1744830463,
              "signer": "d99e88c90da71a4b0d848454e59e296c9ef7a8f018f3eaa3a198dc460b6621a4",
              "rentalFeeSink": "3e82e1c1e4a75adaa3cba8c101c3cd31d9817a2eb966eb3b511fb2ed45b8e262",
-             "rentalFee": 5000000000,
+             "rentalFee": 10000000,
              "newPart": "vouchers",
              "parent": "alice"
          },
@@ -3237,7 +3241,7 @@
 }
          </code></pre>
 <p>This time the parent is set to the parent namespace, in this case the root namespace 'alice'. The rental fee for a sub-namespace
-        is 200 XEM. Be sure to wait until you own the root namespace or NIS will respond with
+        is 10 XEM. Be sure to wait until you own the root namespace or NIS will respond with
         an error message. Once the transaction is included in a block, you own the sub-namespace 'alice.vouchers' as long as the root namespace 'alice'
         does not expire.</p>
 <p>If you want to rent the sub-namespace 'alice.vouchers.special' you have to issue a RequestPrepareAnnounce object again, this time with
@@ -3257,12 +3261,12 @@
         "transaction":
         {
             "timeStamp": 9111526,
-            "fee": 108000000,
+            "fee": 150000,
             "type": 16385,
             "deadline": 9154726,
             "version": -1744830463,
             "signer": "cbda3edb771d42801a5c6ce0725f9374efade19a8933d6ac22ccfa50c777d0f9",
-            "creationFee": 50000000000,
+            "creationFee": 10000000,
             "creationFeeSink": "53e140b5947f104cabc2d6fe8baedbc30ef9a0609c717d9613de593ec2a266d3",
             "mosaicDefinition": {
                 "creator": "cbda3edb771d42801a5c6ce0725f9374efade19a8933d6ac22ccfa50c777d0f9",
@@ -3330,7 +3334,7 @@
 <li>Properties and the levy data can <b>only</b> be changed if the creator owns every single mosaic of that type. This is necessary to prevent
         the creator from secretly introducing a levy or inflating the mosaic by increasing the supply.
     </li>
-    Keep in mind that renewing the mosaic definition costs you 50000 XEM again, so it is worthwhile to double check the data before issuing the
+    Keep in mind that renewing the mosaic definition costs you 10 XEM again, so it is worthwhile to double check the data before issuing the
     transaction.
     </p>
 <h3 id="changing-the-mosaic-supply">Changing the mosaic supply</h3>
@@ -3343,7 +3347,7 @@
         "transaction":
         {
             "timeStamp": 9111526,
-            "fee": 108000000,
+            "fee": 150000,
             "type": 16386,
             "deadline": 9154726,
             "version": -1744830463,
@@ -3685,10 +3689,10 @@
         </ul>
 </li>
 <li>
-<b>Rental fee (Root always: 5000000000, Sub always: 200000000) for namespace:</b> 8 bytes (long).
+<b>Rental fee (Root always: 100<span></span>000000, Sub always: 10<span></span>000000) for namespace:</b> 8 bytes (long).
        	<ul>
-<li><b>Root always:</b> 0x00, 0xf2, 0x05, 0x2a, 0x01, 0x00, 0x00, 0x00</li>
-<li><b>Sub always:</b> 0x00, 0xc2, 0xeb, 0x0b, 0x00, 0x00, 0x00, 0x00</li>
+<li><b>Root always:</b> 0x00, 0xe1, 0xf5, 0x05, 0x00, 0x00, 0x00, 0x00</li>
+<li><b>Sub always:</b> 0x80, 0x96, 0x98, 0x00, 0x00, 0x00, 0x00, 0x00</li>
 </ul>
 </li>
 <li>
@@ -4118,18 +4122,18 @@
                     XEM and the fee for appending a message to the transaction.</p>
 <ol>
 <li>Fees for transferring XEM to another account:<br/>
-                    1 xem per 10,000 xem transferred, capped at 25 xem<br/>
+                    0.05 XEM per 10,000 XEM transferred, capped at 1.25 XEM<br/>
                     Example:<br/>
-                    4 xem fee for a 45,000 xem transfer, 25 xem fee for a 500,000 xem transfer.</li>
+                    0.20 XEM fee for a 45,000 XEM transfer, 1.25 XEM fee for a 500,000 XEM transfer.</li>
 <li>Fees for appending a message to a transaction:<br/>
-                    1 xem per commenced 32 message bytes (messageLength / 32 + 1).<br/>
+                    0.05 XEM per commenced 32 message bytes (messageLength / 32 + 1).<br/>
                     Example:<br/>
                     The unencrypted message „The New Economy Movement will change the world!!!” has a length 49
-                    characters and thus will cost 2 xem fee.</li>
+                    characters and thus will cost 0.15 XEM fee.</li>
 <li>Fees for transferring a mosaic to another account:
                     <ol>
 <li>mosaics with divisibility of 0 and a maximum supply of 10,000 are called small business mosaics.<br/>
-	                    1 xem fee for any transfer of a small business mosaic.</li>
+	                    0.05 XEM fee for any transfer of a small business mosaic.</li>
 <li> For each mosaic that is transferred the fee is calculated the following way:
                         given a mosaic with initial supply s, divisibility d and quantity q, the XEM equivalent is (round to the next smaller integer)<br/>
                         xemEquivalent = (8,999,999,999 * q) / (s * 10^d) <br/>
@@ -4139,8 +4143,10 @@
 <li> maxMosaicQuantity = 9,000,000,000,000,000 </li>
 <li> totalMosaicQuantity = mosaic m supply * 10 ^ (mosaic m divisibility) </li>
 <li> supplyRelatedAdjustment = floor(0.8 * ln(maxMosaicQuantity  / totalMosaicQuantity) </li>
-<li> Then the fee is calculated as<br/>
-							fee = max(1L, xemFee - supplyRelatedAdjustment)</li>
+<li> Then the unweighted fee is calculated as<br/>
+                                unweightedFee = max(1L, xemFee - supplyRelatedAdjustment)</li>
+<li>Finally, the weighted fee can be calculated:<br/>
+                                fee = unweightedFee * feeUnit</li>
 </ol>
                         Example:<br/>
                         Suppose you have a mosaic with 9,000,000 supply and divisibility of 3.
@@ -4149,9 +4155,11 @@
 <li> supplyRelatedAdjustment = floor(0.8 * ln(9,000,000,000,000,000 / 9,000,000,000)) = floor(11.052) = 11 </li>
 <li> transferring 150 such mosaics (i.e. a quantity of 150,000 smallest units) has<br/>
 	                        xemEquivalent = (8,999,999,999 * 150,000) / (9,000,000 * 10^3) = 149,999<br/>
-	                        xemFee = 14 xem</li>
-<li> So the transction will have the following fee:<br/>
-	                        fee = 14 xem - 11 xem = 3 xem</li>
+	                        xemFee = 14 XEM</li>
+<li> So the transaction will have the following unweighted fee:<br/>
+	                        unweightedFee = 14 XEM - 11 XEM = 3 XEM</li>
+<li>Weighted with the current fee unit of 0.05:<br/>
+                                fee = 3 XEM * 0.05 = 0.15 XEM</li>
 </ol>
 </li>
 </ol>
@@ -4164,7 +4172,7 @@
 <p class="JSON">Importance transfer transaction</p>
 </td>
 <td>
-<p>6 XEM</p>
+<p>0.15 XEM</p>
 </td>
 </tr>
 <tr>
@@ -4172,12 +4180,7 @@
 <p class="JSON">Aggregate modification transaction</p>
 </td>
 <td>
-<p>10 + 6 * number of modifications + 6 (if a min cosignatory change is involved)<br/>
-                    Example:<br/>
-                    Adding 3 cosignatories to an account without changing the min cosignatories will cost<br/>
-                    10 + 6 * 3 = 28 XEM.<br/>
-                    Adding 3 cosignatories to an account and changing the min cosignatories will cost<br/>
-                    10 + 6 * 3 + 6 = 34 XEM.<br/>
+<p>0.5 XEM<br/>
 </p>
 </td>
 </tr>
@@ -4186,7 +4189,7 @@
 <p class="JSON">Multisig transaction</p>
 </td>
 <td>
-<p>6 XEM</p>
+<p>0.15 XEM</p>
 </td>
 </tr>
 <tr>
@@ -4194,7 +4197,7 @@
 <p class="JSON">Multisig signature transaction</p>
 </td>
 <td>
-<p>6 XEM</p>
+<p>0.15 XEM</p>
 </td>
 </tr>
 <tr>
@@ -4202,10 +4205,10 @@
 <p class="JSON">Provision namespace transaction</p>
 </td>
 <td>
-<p>20 XEM</p>
+<p>0.15 XEM</p>
 <p>plus:</p>
-<p>Fee for root namespace provisioning: 5000 XEM</p>
-<p>Fee for sub-namespace provisioning: 200 XEM</p>
+<p>Fee for root namespace provisioning: 100 XEM</p>
+<p>Fee for sub-namespace provisioning: 10 XEM</p>
 </td>
 </tr>
 <tr>
@@ -4213,7 +4216,7 @@
 <p class="JSON">Mosaic definition creation transaction</p>
 </td>
 <td>
-<p>20 XEM</p>
+<p>0.15 XEM</p>
 </td>
 </tr>
 <tr>
@@ -4221,7 +4224,7 @@
 <p class="JSON">Mosaic supply change transaction</p>
 </td>
 <td>
-<p>20 XEM</p>
+<p>0.15 XEM</p>
 </td>
 </tr>
 </table>
@@ -4770,7 +4773,7 @@
 <pre><samp class="JSON">{
     "timeStamp": 9111526,
     "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
-    "fee": 3000000,
+    "fee": 150000,
     "mode": 1,
     "remoteAccount": "cc6c9485d15b992501e57fe3799487e99de272f79c5442de94eeb998b45e0144",
     "type": 2049,
@@ -4804,12 +4807,12 @@
 <pre><samp class="JSON">{
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
-        "fee": 108000000,
+        "fee": 150000,
         "type": 16385,
         "deadline": 9154726,
         "version": -1744830463,
         "signer": "cbda3edb771d42801a5c6ce0725f9374efade19a8933d6ac22ccfa50c777d0f9",
-        "creationFee": 50000000000,
+        "creationFee": 10000000,
         "creationFeeSink": "53e140b5947f104cabc2d6fe8baedbc30ef9a0609c717d9613de593ec2a266d3",
         "mosaicDefinition": {
             "creator": "cbda3edb771d42801a5c6ce0725f9374efade19a8933d6ac22ccfa50c777d0f9",
@@ -4860,7 +4863,7 @@
 <pre><samp class="JSON">{
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
-        "fee": 108000000,
+        "fee": 150000,
         "type": 16386,
         "deadline": 9154726,
         "version": -1744830463,
@@ -4899,7 +4902,7 @@
 <pre><samp class="JSON">{
     "timeStamp": 9111526,
     "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
-    "fee": 3000000,
+    "fee": 500000,
     "type": 257,
     "deadline": 9154726,
     "version": 1744830466,
@@ -4939,7 +4942,7 @@
 <pre><samp class="JSON">{
     "timeStamp": 9111526,
     "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
-    "fee": 3000000,
+    "fee": 150000,
     "type": 257,
     "deadline": 9154726,
     "version": -1744830463,
@@ -4963,7 +4966,7 @@
 <pre><samp class="JSON">{
     "timeStamp": 9111526,
     "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
-    "fee": 3000000,
+    "fee": 150000,
     "type": 257,
     "deadline": 9154726,
     "version": -1744830463,
@@ -4988,13 +4991,13 @@
 <pre><samp class="JSON">{
         "timeStamp": 9111526,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
-        "fee": 108000000,
+        "fee": 150000,
         "type": 8193,
         "deadline": 9154726,
         "version": -1744830463,
         "signer": "d99e88c90da71a4b0d848454e59e296c9ef7a8f018f3eaa3a198dc460b6621a4",
         "rentalFeeSink": "3e82e1c1e4a75adaa3cba8c101c3cd31d9817a2eb966eb3b511fb2ed45b8e262",
-        "rentalFee": 5000000000,
+        "rentalFee": 10000000,
         "newPart": "voucher",
         "parent": "alice"
 }</samp></pre>
@@ -5016,7 +5019,7 @@
         "timeStamp": 9111526,
         "amount": 1000000000,
         "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
-        "fee": 3000000,
+        "fee": 50000,
         "recipient": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
         "type": 257,
         "deadline": 9154726,
@@ -5033,7 +5036,7 @@
         "timeStamp": 9111526,
         "amount": 123000000,
         "signature": "fad7ea2b5df5f7846f45fd9983a75ad8d333af3660f4f0d355864420f4482605d675e89d97177385338b226097342b4222add52c5397423f9eaf6b01fe3ef70c",
-        "fee": 3000000,
+        "fee": 100000,
         "recipient": "TBEH27FNRS43FNH3PXE4XN3H7HXA37H77APSZW46",
         "type": 257,
         "deadline": 9154726,
@@ -5433,7 +5436,7 @@
        { 
               "timeStamp": 9111526, 
               "amount": 1000000000, 
-              "fee": 3000000, 
+              "fee": 50000,
               "recipient": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA", 
               "type": 257, 
               "deadline": 9154726, 
