@@ -10,7 +10,7 @@
 <p class="NemTitleText">NEM NIS API Documentation</p>
 <p class="NemSubtitle">Version 1.21</p>
 <p class="NemSubtitle">
-<time datetime="2017-12-13 14:18:00Z">14:18, December 13, 2017</time>
+<time datetime="2017-12-13 14:29:00Z">14:29, December 13, 2017</time>
 </p>
 <p style="page-break-before:always"></p>
 <p class="NemTocHeading">Contents</p>
@@ -1445,7 +1445,7 @@
 <pre><samp class="JSON">{
         "data": [{
                 "fqn": "makoto.metal.coins",
-                "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+                "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
                 "height": 13465
         }]
 }</samp></pre>
@@ -1694,7 +1694,7 @@
 </p>
 <h4>Example of returned JSON object:</h4>
 <pre><samp class="JSON">{
-    [
+    "data": [
         {
           "height": 17592,
           "address": "NALICELGU3IVY4DPJKHYLSSVYFFWYS5QPLYEZDJJ",
@@ -2363,23 +2363,24 @@
 <pre><samp class="JSON">{
        "data": [
        {
-              "node":
-              "metaData":
-              {
-                     "application": "NIS",
-                     "version": "0.4.33-BETA",
-                     "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
-              },
-              "endpoint":
-              {
-                     "protocol": "http",
-                     "port": 7890,
-                     "host": "81.224.224.156"
-              },
-              "identity":
-              {
-                     "name": "Alice",
-                     "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+              "node": {
+                     "metaData":
+                     {
+                            "application": "NIS",
+                            "version": "0.4.33-BETA",
+                            "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
+                     },
+                     "endpoint":
+                     {
+                            "protocol": "http",
+                            "port": 7890,
+                            "host": "81.224.224.156"
+                     },
+                     "identity":
+                     {
+                            "name": "Alice",
+                            "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+                     }
               },
               "syncs": 3,
               "experience":
@@ -2500,21 +2501,21 @@
 <h4>Example of returned JSON object:</h4>
 <pre><samp class="JSON">{
         "data": [{
-            "meta":{
-                "id":26264,
+            "meta": {
+                "id": 26264
             },
-            "namespace":{
+            "namespace": {
                 "fqn": "makoto.metal.coins",
-                "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+                "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
                 "height": 13465
             }
         },{
-            "meta":{
-                "id":25421,
+            "meta": {
+                "id": 25421
             },
-            "namespace":{
+            "namespace": {
                 "fqn": "gimre.vouchers",
-                "owner": TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
+                "owner": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
                 "height": 12392
             }
         }]
@@ -2543,7 +2544,7 @@
 <h4>Example of returned JSON object:</h4>
 <pre><samp class="JSON">{
         "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "height": 13465
 }</samp></pre>
 <h4>Possible Errors:</h4>
@@ -2677,7 +2678,7 @@
 <h4>Example of returned JSON object:</h4>
 <pre><samp class="JSON">{
     "data": [{
-        "meta" {
+        "meta": {
             "id": 3541
         },
         "mosaic": {
@@ -5213,7 +5214,7 @@
 <li>2: The levy is calculated from the transferred amount.
                 The field 'fee' states how many percentiles of the transferred quantity will transferred to the recipient.
             </li>
-</td></tr><tr><td>recipient</td><td>The recipient of the levy.</td></tr><tr><td>mosaicId</td><td>The mosaic in which the levy is paid.</td></tr><tr><td>recipient</td><td>The fee. The interpretation is dependent on the type of the levy</td></tr></table>
+</td></tr><tr><td>recipient</td><td>The recipient of the levy.</td></tr><tr><td>mosaicId</td><td>The mosaic in which the levy is paid.</td></tr><tr><td>fee</td><td>The fee. The interpretation is dependent on the type of the levy</td></tr></table>
 <h2 id="mosaicId">MosaicId</h2>
 <h4>Description:</h4><p>A mosaic id uniquely identifies an underlying mosaic definition.</p>
 <h4>JSON structure by example:</h4>
@@ -5228,7 +5229,7 @@
 <h4>JSON structure by example:</h4>
 <pre><samp class="JSON">{
         "fqn": "makoto.metal.coins",
-        "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
         "height": 13465
 }</samp></pre>
 <h4>Description of the fields:</h4><table class="NemParamsGrid"><tr><td>fqn</td><td>The fully qualified name of the namespace, also named namespace id.</td></tr><tr><td>owner</td><td>The owner of the namespace.</td></tr><tr><td>height</td><td>The height at which the ownership begins.</td></tr></table>
@@ -5241,7 +5242,7 @@
         },
         "namespace":{
             "fqn": "makoto.metal.coins",
-            "owner": TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+            "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
             "height": 13465
         }
 }</samp></pre>
@@ -5649,7 +5650,7 @@
 <dd>Validation failed because the namespace has expired.</dd>
 <dt>FAILURE_NAMESPACE_OWNER_CONFLICT</dt>
 <dd>Validation failed because the transaction signer is not the owner of the namespace.</dd>
-<dt>FAILURE_NAMESPACE_INVALID_NAME(</dt>
+<dt>FAILURE_NAMESPACE_INVALID_NAME</dt>
 <dd>Validation failed because the name for the namespace is invalid.</dd>
 <dt>FAILURE_NAMESPACE_INVALID_RENTAL_FEE_SINK</dt>
 <dd>Validation failed because the specified namespace rental fee sink is invalid.</dd>
