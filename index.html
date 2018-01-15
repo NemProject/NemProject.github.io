@@ -8,9 +8,9 @@
 <div class="document">
 <p class="NemTitle"><img src="logo.png"/></p>
 <p class="NemTitleText">NEM NIS API Documentation</p>
-<p class="NemSubtitle">Version 1.21</p>
+<p class="NemSubtitle">Version 1.22</p>
 <p class="NemSubtitle">
-<time datetime="2017-12-13 14:29:00Z">14:29, December 13, 2017</time>
+<time datetime="2018-01-15 15:37:00Z">15:37, January 15, 2018</time>
 </p>
 <p style="page-break-before:always"></p>
 <p class="NemTocHeading">Contents</p>
@@ -210,6 +210,10 @@
 </div>
 <hr/>
 <div>
+<h4>Changes since 1.21</h4>
+<ul>
+<li>Cosmetic fixes in examples in various queries (outdated data)</li>
+</ul>
 <h4>Changes since 1.20</h4>
 <ul>
 <li>Updated the fees to reflect the second fee fork.</li>
@@ -833,7 +837,8 @@
         "importance": 0.010263666447108395,
         "publicKey": "a11a1a6c17a24252e674d151713cdf51991ad101751e4af02a20c61b59f1fe1a",
         "label": null,
-        "harvestedBlocks": 645
+        "harvestedBlocks": 645,
+        "multisigInfo": {}
     },
     "meta":
     {
@@ -962,6 +967,7 @@
 </p>
 <h4>Example of returned JSON object:</h4>
 <pre><samp class="JSON">{
+    "cosignatories": [ ],
     "cosignatoryOf": [ ],
     "status": "LOCKED",
     "remoteStatus": "ACTIVE"
@@ -1255,25 +1261,29 @@
 </p>
 <h4>Example of returned JSON object (test network):</h4>
 <pre><samp class="JSON">{
-       "meta": {
-           "data": "d7c9e33421e43bf4a5d6e21304c8096c599142755d581bd6e9037f41545a5873"
-       },
-       "data": [
-       {
-              "timeStamp": 9131839,
-              "amount": 1000000000,
-              "signature": "0acface77696a54340a7da8592750ea0410f62717d07e4df30e09718092521262465df5c4d98d32cd9d6e8699d66e016ec8db716d20090ad99cc16f7a6d13904",
-              "fee": 2000000,
-              "recipient": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
-              "type": 257,
-              "deadline": 9175039,
-              "message": {
-                     "payload": "",
-                     "type": 1
-              },
-              "version": -1744830463,
-              "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
-       }]
+        "data": [
+        {
+                "meta": 
+                {
+                        "data": "d7c9e33421e43bf4a5d6e21304c8096c599142755d581bd6e9037f41545a5873"
+                },
+                "transaction": 
+                {
+                        "timeStamp": 9131839,
+                        "amount": 1000000000,
+                        "signature": "0acface77696a54340a7da8592750ea0410f62717d07e4df30e09718092521262465df5c4d98d32cd9d6e8699d66e016ec8db716d20090ad99cc16f7a6d13904",
+                        "fee": 2000000,
+                        "recipient": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
+                        "type": 257,
+                        "deadline": 9175039,
+                        "message": {
+                                "payload": "",
+                                "type": 1
+                        },
+                        "version": -1744830463,
+                        "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+                }
+        }]
 }</samp></pre>
 <h4>Possible Errors:</h4>
 <p class="NemNoSpacing">If the address parameter is not valid,
@@ -1354,10 +1364,9 @@
 <pre><samp class="JSON">{
        "data": [{
               "timeStamp": 8879051,
-              "blockHash": {
-                     "data": "be3bb308ce33625f0dab64fd31b9ebe1c50dd4b94b43b03c228f481ab82458c3"
-              },
+              "difficulty": 26453656336676,
               "totalFee": 102585065,
+              "id": 1262068,
               "height": 37015
        }]
 }</samp></pre>
@@ -1894,7 +1903,7 @@
 <table class="NemTableGrid">
 <tr>
 <td>
-<p class="JSON">blockHeight </p>
+<p class="JSON">height</p>
 </td>
 <td>
 <p class="NemNoSpacing">A BlockHeight JSON object as described
@@ -1941,7 +1950,7 @@
 <table class="NemTableGrid">
 <tr>
 <td>
-<p class="JSON">blockHeight </p>
+<p class="JSON">height</p>
 </td>
 <td>
 <p class="NemNoSpacing">A BlockHeight JSON object as described
@@ -2128,7 +2137,9 @@
 <pre><samp class="JSON">{
        "metaData":
        {
+              "features": 1,
               "application": "NIS",
+              "networkId": -104,
               "version": "0.4.33-BETA",
               "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
        },
@@ -2168,7 +2179,9 @@
        "node": {
               "metaData":
               {
+                     "features": 1,
                      "application": "NIS",
+                     "networkId": -104,
                      "version": "0.4.33-BETA",
                      "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
               },
@@ -2257,7 +2270,9 @@
        "data": [
               "metaData":
               {
+                     "features": 1,
                      "application": "NIS",
+                     "networkId": -104,
                      "version": "0.4.33-BETA",
                      "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
               },
@@ -2299,7 +2314,9 @@
        "data": [
               "metaData":
               {
+                     "features": 1,
                      "application": "NIS",
+                     "networkId": -104,
                      "version": "0.4.33-BETA",
                      "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
               },
@@ -2366,7 +2383,9 @@
               "node": {
                      "metaData":
                      {
+                            "features": 1,
                             "application": "NIS",
+                            "networkId": -104,
                             "version": "0.4.33-BETA",
                             "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
                      },
@@ -4443,7 +4462,8 @@
        "importance": 0.010263666447108395,
        "publicKey": "a11a1a6c17a24252e674d151713cdf51991ad101751e4af02a20c61b59f1fe1a",
        "label": null,
-       "harvestedBlocks": 645
+       "harvestedBlocks": 645,
+       "multisigInfo": {}
 }</samp></pre>
 <h4>Description of the fields:</h4>
 <h4>Description of the fields:</h4><table class="NemParamsGrid"><tr><td>address</td><td>The address of the account.</td></tr><tr><td>balance</td><td>The balance of the account in micro NEM.</td></tr><tr><td>vestedBalance</td><td>The vested part of the balance of the account in micro NEM.</td></tr><tr><td>importance</td><td>The importance of the account.</td></tr><tr><td>publicKey</td><td>The public key of the account.</td></tr><tr><td>label</td><td>The label of the account (not used, always null).</td></tr><tr><td>harvestedBlocks</td><td>The number blocks that the account already harvested.</td></tr></table>
@@ -5337,7 +5357,7 @@
        "metaData": 
        {
               "features": 1,
-              "networkId": 104,
+              "networkId": -104,
               "application": "NIS", 
               "version": "0.4.30-BETA", 
               "platform": "Oracle Corporation (1.8.0_05) on Windows 8.1" 
