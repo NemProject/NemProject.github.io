@@ -777,7 +777,8 @@
         "importance": 0.010263666447108395,
         "publicKey": "a11a1a6c17a24252e674d151713cdf51991ad101751e4af02a20c61b59f1fe1a",
         "label": null,
-        "harvestedBlocks": 645
+        "harvestedBlocks": 645,
+        "multisigInfo": {}
     },
     "meta":
     {
@@ -950,6 +951,7 @@
 
     <resp>
 {
+    "cosignatories": [ ],
     "cosignatoryOf": [ ],
     "status": "LOCKED",
     "remoteStatus": "ACTIVE"
@@ -1299,25 +1301,29 @@
 
     <resp>
 {
-       "meta": {
-           "data": "d7c9e33421e43bf4a5d6e21304c8096c599142755d581bd6e9037f41545a5873"
-       },
-       "data": [
-       {
-              "timeStamp": 9131839,
-              "amount": 1000000000,
-              "signature": "0acface77696a54340a7da8592750ea0410f62717d07e4df30e09718092521262465df5c4d98d32cd9d6e8699d66e016ec8db716d20090ad99cc16f7a6d13904",
-              "fee": 2000000,
-              "recipient": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
-              "type": 257,
-              "deadline": 9175039,
-              "message": {
-                     "payload": "",
-                     "type": 1
-              },
-              "version": -1744830463,
-              "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
-       }]
+        "data": [
+        {
+                "meta": 
+                {
+                        "data": null
+                },
+                "transaction": 
+                {
+                        "timeStamp": 9131839,
+                        "amount": 1000000000,
+                        "signature": "0acface77696a54340a7da8592750ea0410f62717d07e4df30e09718092521262465df5c4d98d32cd9d6e8699d66e016ec8db716d20090ad99cc16f7a6d13904",
+                        "fee": 2000000,
+                        "recipient": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
+                        "type": 257,
+                        "deadline": 9175039,
+                        "message": {
+                                "payload": "",
+                                "type": 1
+                        },
+                        "version": -1744830463,
+                        "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+                }
+        }]
 }
     </resp>
 
@@ -1424,10 +1430,9 @@
 {
        "data": [{
               "timeStamp": 8879051,
-              "blockHash": {
-                     "data": "be3bb308ce33625f0dab64fd31b9ebe1c50dd4b94b43b03c228f481ab82458c3"
-              },
+              "difficulty": 26453656336676,
               "totalFee": 102585065,
+              "id": 1262068,
               "height": 37015
        }]
 }
@@ -2128,7 +2133,7 @@
     <table class=NemTableGrid>
         <tr>
             <td>
-                <p class=JSON>blockHeight </p>
+                <p class=JSON>height</p>
             </td>
             <td>
                 <p class=NemNoSpacing>A BlockHeight JSON object as described
@@ -2189,7 +2194,7 @@
     <table class=NemTableGrid>
         <tr>
             <td>
-                <p class=JSON>blockHeight </p>
+                <p class=JSON>height</p>
             </td>
             <td>
                 <p class=NemNoSpacing>A BlockHeight JSON object as described
@@ -2405,7 +2410,9 @@
 {
        "metaData":
        {
+              "features": 1,
               "application": "NIS",
+              "networkId": 104,
               "version": "0.4.33-BETA",
               "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
        },
@@ -2458,7 +2465,9 @@
        "node": {
               "metaData":
               {
+                     "features": 1,
                      "application": "NIS",
+                     "networkId": 104,
                      "version": "0.4.33-BETA",
                      "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
               },
@@ -2574,7 +2583,9 @@
        "data": [
               "metaData":
               {
+                     "features": 1,
                      "application": "NIS",
+                     "networkId": 104,
                      "version": "0.4.33-BETA",
                      "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
               },
@@ -2629,7 +2640,9 @@
        "data": [
               "metaData":
               {
+                     "features": 1,
                      "application": "NIS",
+                     "networkId": 104,
                      "version": "0.4.33-BETA",
                      "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
               },
@@ -2722,7 +2735,9 @@
               "node": {
                      "metaData":
                      {
+                            "features": 1,
                             "application": "NIS",
+                            "networkId": 104,
                             "version": "0.4.33-BETA",
                             "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
                      },
@@ -5102,7 +5117,8 @@
        "importance": 0.010263666447108395,
        "publicKey": "a11a1a6c17a24252e674d151713cdf51991ad101751e4af02a20c61b59f1fe1a",
        "label": null,
-       "harvestedBlocks": 645
+       "harvestedBlocks": 645,
+       "multisigInfo": {}
 }
     </resp>
 
