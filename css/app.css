@@ -420,3 +420,7 @@ table.NemParamsGrid td:first-child {
 .path {
     font-weight: bold;
 }
+
+code {
+    display: block;
+}
