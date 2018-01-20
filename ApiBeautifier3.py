@@ -4,6 +4,7 @@
 
 from datetime import datetime
 import re
+import io
 from collections import OrderedDict
 from bs4 import BeautifulSoup
 
@@ -28,10 +29,15 @@ def soupTab(s, encoding=None, formatter="minimal"):
 #	return r.sub(lambda mobj: '\t'*len(mobj.group(1)), s.prettify(encoding, formatter))
 
 def printToc(toc, indent=0):
-    r = "\t" * indent + "<ol>\n";
+    r = "\t" * indent + "<ul class='vertical menu"
+    if (indent == 0):
+        r += "' data-accordion-menu data-submenu-toggle='true' data-magellan>\n<li class='menu-text'><a href='https://nem.io/' target='_blank'><img alt='NEM Logo' src='image/logo.png'/></a></li>\n"  
+    else:
+        r += " nested'>\n"
+
     indent += 1
     for k, v in toc.items():
-        r += ("\t" * (indent + 1)) + "<li>"
+        r += ("\t" * (indent + 1)) + "<li class='tabs-title'>"
         if len(k) > 0:
             r += "<a href='#%s'>%s</a>" % (prettyName(k), k)
         if v != {}:
@@ -40,7 +46,7 @@ def printToc(toc, indent=0):
         else:
             r += "</li>\n"
     indent -= 1
-    r += "\t" * indent + "</ol>\n"
+    r += "\t" * indent + "</ul>\n"
     return r
 
 
@@ -207,8 +213,8 @@ def main():
         # while len(parents) != level:
         #	addObj('')
 
-    soup = BeautifulSoup(open('NisApi.src.html'), 'html.parser')
-    for header in soup.findAll(['h1', 'h2', 'h3']):
+    soup = BeautifulSoup(open('NisApiFoundation.src.html', encoding="utf8"), 'html.parser')
+    for header in soup.findAll(['h1','h2','h3']):
         c = header.contents[0]
         header['id'] = prettyName(c)
         level = int(header.name[1])
@@ -241,7 +247,7 @@ def main():
     convertJson(soup)
     convertAppa(soup)
 
-    open('index.html', 'w').write(str(soup)) #soupTab(soup, 'utf-8'))
+    io.open('index.html', 'w', encoding="utf-8").write(str(soup)) #soupTab(soup, 'utf-8'))
     print("index.html generated")
 
 if __name__ == "__main__":

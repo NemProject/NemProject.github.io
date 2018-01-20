@@ -420,17 +420,3 @@ table.NemParamsGrid td:first-child {
 .path {
     font-weight: bold;
 }
-
-div.warning {
-    background-color: #ffe0e0;
-    font-size: 13pt;
-    width: 70%;
-    margin: 30pt auto 30pt auto;
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #444;
-}
-
-div.warning::before {
-    content: "WARNING: ";
-}
