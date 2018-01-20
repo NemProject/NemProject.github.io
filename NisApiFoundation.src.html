@@ -16,7 +16,7 @@
 
     <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
         <button class="menu-icon" type="button" data-open="toc"></button>
-        <div class="title-bar-title">Menu</div>
+        <div class="title-bar-title">uNEM</div>
     </div>
 
     <div class="grid-x grid-padding-x">
@@ -38,7 +38,7 @@
 
                 <p class=NemTitleText>NEM NIS API Documentation</p>
 
-                <p class=NemSubtitle>Version 1.21</p>
+                <p class=NemSubtitle>Version 1.22</p>
 
                 <p class=NemSubtitle>
                     <time>FILLED AUTOMATICALLY</time>
@@ -48,6 +48,10 @@
                 <h1>Introduction</h1>
 
                 <div>
+                    <h4>Changes since 1.21</h4>
+                    <ul>
+                        <li>Cosmetic fixes in examples in various queries (outdated data)</li>
+                    </ul>
                     <h4>Changes since 1.20</h4>
                     <ul>
                         <li>Updated the fees to reflect the second fee fork.</li>
@@ -129,7 +133,7 @@
                     </ul>
                     <h4>Changes since 1.11</h4>
                     <ul>
-                        <li>updated chapter 3.1.2 <a href="#requesting-the-account-data">Requesting the account data</a></li>
+                        <li>updated chapter 3.1.2 <a href="#requesting-the-account-data"> Requesting the account data</a></li>
                         <li>
                             added chapter 3.1.3 <a href="#requesting-the-original-account-data-for-a-delegate-account">
                                 Requesting the original account data for a delegate
@@ -177,6 +181,7 @@
                         <li>updated structures <a href="#keyPairViewModel">KeyPairViewModel</a>, <a href="#accountMetaData">AccountMetaData</a></li>
                     </ul>
                 </div>
+
                 <hr />
 
                 <h2>General Information</h2>
@@ -866,7 +871,8 @@
                     "importance": 0.010263666447108395,
                     "publicKey": "a11a1a6c17a24252e674d151713cdf51991ad101751e4af02a20c61b59f1fe1a",
                     "label": null,
-                    "harvestedBlocks": 645
+                    "harvestedBlocks": 645,
+                    "multisigInfo": {}
                     },
                     "meta":
                     {
@@ -1049,6 +1055,7 @@
 
                 <resp>
                     {
+                    "cosignatories": [ ],
                     "cosignatoryOf": [ ],
                     "status": "LOCKED",
                     "remoteStatus": "ACTIVE"
@@ -1434,10 +1441,13 @@
 
                 <resp>
                     {
-                    "meta": {
+                    "data": [
+                    {
+                    "meta":
+                    {
                     "data": "d7c9e33421e43bf4a5d6e21304c8096c599142755d581bd6e9037f41545a5873"
                     },
-                    "data": [
+                    "transaction":
                     {
                     "timeStamp": 9131839,
                     "amount": 1000000000,
@@ -1452,6 +1462,7 @@
                     },
                     "version": -1744830463,
                     "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+                    }
                     }]
                     }
                 </resp>
@@ -1568,10 +1579,9 @@
                     {
                     "data": [{
                     "timeStamp": 8879051,
-                    "blockHash": {
-                    "data": "be3bb308ce33625f0dab64fd31b9ebe1c50dd4b94b43b03c228f481ab82458c3"
-                    },
+                    "difficulty": 26453656336676,
                     "totalFee": 102585065,
+                    "id": 1262068,
                     "height": 37015
                     }]
                     }
@@ -2324,7 +2334,7 @@
                 <table class=NemTableGrid>
                     <tr>
                         <td>
-                            <p class=JSON>blockHeight </p>
+                            <p class=JSON>height</p>
                         </td>
                         <td>
                             <p class=NemNoSpacing>
@@ -2389,7 +2399,7 @@
                 <table class=NemTableGrid>
                     <tr>
                         <td>
-                            <p class=JSON>blockHeight </p>
+                            <p class=JSON>height</p>
                         </td>
                         <td>
                             <p class=NemNoSpacing>
@@ -2633,7 +2643,9 @@
                     {
                     "metaData":
                     {
+                    "features": 1,
                     "application": "NIS",
+                    "networkId": -104,
                     "version": "0.4.33-BETA",
                     "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
                     },
@@ -2689,7 +2701,9 @@
                     "node": {
                     "metaData":
                     {
+                    "features": 1,
                     "application": "NIS",
+                    "networkId": -104,
                     "version": "0.4.33-BETA",
                     "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
                     },
@@ -2813,7 +2827,9 @@
                     "data": [
                     "metaData":
                     {
+                    "features": 1,
                     "application": "NIS",
+                    "networkId": -104,
                     "version": "0.4.33-BETA",
                     "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
                     },
@@ -2873,7 +2889,9 @@
                     "data": [
                     "metaData":
                     {
+                    "features": 1,
                     "application": "NIS",
+                    "networkId": -104,
                     "version": "0.4.33-BETA",
                     "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
                     },
@@ -2972,7 +2990,9 @@
                     "node": {
                     "metaData":
                     {
+                    "features": 1,
                     "application": "NIS",
+                    "networkId": -104,
                     "version": "0.4.33-BETA",
                     "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
                     },
@@ -3441,8 +3461,7 @@
                     <appa>RequestPrepareAnnounce</appa>
                     for more details.
 
-                    <div class="callout alert text-center">
-                        <i class="fi-info"> WARNING </i>
+                    <div class="warning">
                         The <span class="JSON">/transaction/prepare-announce</span> API
                         should be <br> used only on <strong>TRUSTED</strong> and <strong>LOCAL</strong> nodes!
                     </div>
@@ -3974,8 +3993,7 @@
                     Once approved by the network <em>Hachi</em> is no longer cosignatory of the multisig account <em>Alice.</em>
                 </p>
 
-                <div class="callout alert text-center">
-                    <i class="fi-info"> WARNING </i>
+                <div class="warning">
                     Removal of accounts is <strong>NOT</strong> final and might be subject of change
                 </div>
 
@@ -5233,8 +5251,7 @@
 
                 <p>Several requests supply additional information about the internal status of NIS.</p>
 
-                <div class="callout alert text-center">
-                    <i class="fi-info"> WARNING </i>
+                <div class="warning">
                     Those requests may get dropped in future versions of NIS
                     without further notice, you should not rely on their existence.
                 </div>
@@ -5542,7 +5559,8 @@
                     "importance": 0.010263666447108395,
                     "publicKey": "a11a1a6c17a24252e674d151713cdf51991ad101751e4af02a20c61b59f1fe1a",
                     "label": null,
-                    "harvestedBlocks": 645
+                    "harvestedBlocks": 645,
+                    "multisigInfo": {}
                     }
                 </resp>
 
@@ -7086,7 +7104,7 @@
                     "metaData":
                     {
                     "features": 1,
-                    "networkId": 104,
+                    "networkId": -104,
                     "application": "NIS",
                     "version": "0.4.30-BETA",
                     "platform": "Oracle Corporation (1.8.0_05) on Windows 8.1"

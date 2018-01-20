@@ -31,7 +31,7 @@ def soupTab(s, encoding=None, formatter="minimal"):
 def printToc(toc, indent=0):
     r = "\t" * indent + "<ul class='vertical menu"
     if (indent == 0):
-        r += "' data-accordion-menu data-submenu-toggle='true' data-magellan>\n<li class='menu-text'><a href='https://nem.io/' target='_blank'><img alt='NEM Logo' src='image/logo.png'/></a></li>\n"  
+        r += "' data-accordion-menu data-submenu-toggle='true'>\n<li class='menu-text'><a href='https://nem.io/' target='_blank'><img alt='NEM Logo' src='image/logo.png'/></a></li>\n"  
     else:
         r += " nested'>\n"
 
