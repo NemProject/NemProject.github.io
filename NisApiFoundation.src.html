@@ -45,6 +45,8 @@
                 </p>
                 <p style='page-break-before:always'></p>
 
+                <h1>Introduction</h1>
+
                 <div>
                     <h4>Changes since 1.20</h4>
                     <ul>
@@ -176,8 +178,6 @@
                     </ul>
                 </div>
                 <hr />
-
-                <h1>Introduction</h1>
 
                 <h2>General Information</h2>
 
@@ -1233,7 +1233,7 @@
                         Gets an array of transaction meta data
                         pairs where the recipient has the address given as parameter to the request. A
                         maximum of 25 transaction meta data pairs is returned. For details about
-                        sorting and discussion of the second parameter see 
+                        sorting and discussion of the second parameter see
                         <a href="#requesting-transaction-data-for-an-account">Requesting transaction data for an account</a>.
                     </p>
                 </desc>
@@ -1333,7 +1333,7 @@
                         Gets an array of transaction meta data
                         pairs for which an account is the sender or receiver. A maximum of 25
                         transaction meta data pairs is returned. For details about sorting and
-                        discussion of the second parameter see 
+                        discussion of the second parameter see
                         <a href="#requesting-transaction-data-for-an-account">Requesting transaction data for an account</a>.
                     </p>
                 </desc>
@@ -3441,7 +3441,8 @@
                     <appa>RequestPrepareAnnounce</appa>
                     for more details.
 
-                    <div class="warning">
+                    <div class="callout alert text-center">
+                        <i class="fi-info"> WARNING </i>
                         The <span class="JSON">/transaction/prepare-announce</span> API
                         should be <br> used only on <strong>TRUSTED</strong> and <strong>LOCAL</strong> nodes!
                     </div>
@@ -3973,7 +3974,8 @@
                     Once approved by the network <em>Hachi</em> is no longer cosignatory of the multisig account <em>Alice.</em>
                 </p>
 
-                <div class="warning">
+                <div class="callout alert text-center">
+                    <i class="fi-info"> WARNING </i>
                     Removal of accounts is <strong>NOT</strong> final and might be subject of change
                 </div>
 
@@ -5231,7 +5233,8 @@
 
                 <p>Several requests supply additional information about the internal status of NIS.</p>
 
-                <div class="warning">
+                <div class="callout alert text-center">
+                    <i class="fi-info"> WARNING </i>
                     Those requests may get dropped in future versions of NIS
                     without further notice, you should not rely on their existence.
                 </div>
