@@ -69,7 +69,11 @@
 }
 
 body {
-    background-color: #fdfdfd;
+    background-color: #EEF5F9;
+    background-repeat: no-repeat;
+    background-position: left;
+    background-attachment: fixed;
+    background-image: url("background-branches.png");
 }
 
 /* Page Definitions */
@@ -204,9 +208,10 @@ h1 {
     line-height: 150%;
     font-size: 16.0pt;
     font-family: "Roboto Black";
-    color: #2E74B5;
+    color: #66B7E7;
     font-weight: normal;
     counter-reset: hl2;
+    border-bottom: 3px solid #66B7E7;
 }
 
 h2 {
@@ -214,9 +219,10 @@ h2 {
     page-break-after: avoid;
     font-size: 13.0pt;
     font-family: "Roboto Medium";
-    color: #2E74B5;
+    color: #66B7E7;
     font-weight: normal;
     counter-reset: hl3;
+    border-bottom: 1px solid #66B7E7;
 }
 
 h3 {
@@ -224,7 +230,7 @@ h3 {
     page-break-after: avoid;
     font-size: 13.0pt;
     font-family: Roboto;
-    color: #1F4D78;
+    color: #66B7E7;
     font-weight: normal;
     counter-reset: hl4;
 }
@@ -317,7 +323,7 @@ p.NemSubtitle {
 }
 
 a:link, span.NemHyperlink {
-    color: #0563C1;
+    color: #66B7E7;
     text-decoration: underline;
 }
 
@@ -348,7 +354,7 @@ p.NemTocHeading {
     page-break-after: avoid;
     font-size: 16.0pt;
     font-family: "Roboto Light", "sans-serif";
-    color: #2E74B5;
+    color: #66B7E7;
 }
 
 p.JSON, span.JSON, samp.JSON, code.JSON {
@@ -366,6 +372,8 @@ pre {
     background-color: #eee;
     white-space: pre-wrap;
     width: 90%;
+    margin:auto;
+    padding: 10px;
 }
 
 table.NemApiGrid, table.NemTableGrid, table.NemParamsGrid {
